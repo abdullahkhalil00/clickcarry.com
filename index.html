@@ -11,6 +11,132 @@
             background: linear-gradient(to right, #f0f0f0, #c0c0c0, #f0f0f0);
             margin: 20px 0;
         }
+
+        /* Navbar Gradient Background */
+        .navbar {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+
+        /* Place Order Button */
+        .navbar-nav .nav-item .nav-link.place-order-btn {
+            background-color: #ff7e5f;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-left: auto;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-item .nav-link.place-order-btn:hover {
+            background-color: #feb47b;
+        }
+
+        /* Text Section Background and 3D Text */
+        .text-section {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Form Enhancements */
+        #place {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #place .form-control, #place .form-select {
+            border-radius: 5px;
+        }
+
+        #place button {
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        #place button:hover {
+            background-color: #feb47b;
+            transform: scale(1.05);
+        }
+
+        /* New styles for form */
+        #place .form-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        #place .form-control, #place .form-select {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        #place .form-control:focus, #place .form-select:focus {
+            border-color: #ff7e5f;
+            box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+        }
+        #place .form-textarea {
+            resize: vertical;
+        }
+        #place .btn-primary {
+            background-color: #ff7e5f;
+            border-color: #ff7e5f;
+        }
+        #place .btn-primary:hover {
+            background-color: #feb47b;
+            border-color: #feb47b;
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .rounded {
+            border-radius: 10px;
+        }
+
+        .shadow {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #ff007f;
+            border-color: #ff007f;
+        }
+
+        .btn-primary:hover {
+            background-color: #e60073;
+            border-color: #e60073;
+        }
+
+        .text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.72); /* Semi-transparent background */
+            color: white;
+            padding: 20px;
+            width: 50%; /* Adjust width as needed */
+        }
+        .place-order-btn{
+            background-color: #ff7e5f;
+            color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-left: auto;
+            transition: background-color 0.3s ease;
+        }
+        .place-order-btn:hover {
+            transform: scale(1.07);
+            background-color: #feb47b;
+            border-color: #feb47b;
+        }
     </style>
 </head>
 <body>
@@ -31,33 +157,30 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
+                  
                     <li class="nav-item">
-                        <a class="nav-link" href="#place">Place Order</a>
+                        <a class="nav-link" href="#about">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link " href="#services">Our Services</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#">Our Services</a>
-                    </li>
+                    
                 </ul>
             </div>
         </div>
     </nav>
 
+  
+
     
 
-    <div class="container mt-5">
-        <div class="row">
-            <!-- Text Section -->
-            <div class="col-md-6">
-                <h1><b>Click & Carry</b></h1>
-                <p><br><br>Click & Carry is a modern home delivery service designed to bring convenience to your doorstep. We cater to a wide range of needs, offering categories such as fresh vegetables, essential groceries, stylish garments, and natural pansar items. Our platform allows users to easily place orders by selecting their desired items and specifying quality and quantity. We provide two delivery options: shop-to-home, where we charge only a minimal delivery fee, and direct delivery of goods procured by us. With a focus on reliability, affordability, and efficiency, Click & Carry ensures a seamless shopping experience for households and businesses alike</p>
-            </div>
-
             <!-- Image Background Section -->
-            <div class="col-md-6" style="background-image: url('category.jpg'); background-size: cover; color: white; height: 300px; display: flex; align-items: center; justify-content: center;">
-                <!-- <h2>Overlay Text</h2> -->
+            <div class="col-md-12 position-relative" style="background-image: url('category.jpg'); background-size: cover; height: 500px;">
+                <div class="text-overlay">
+                    <h1><b>Click & Carry</b></h1>
+                    <p>This is some text that will appear over the image, positioned in the lower left corner.</p>
+                    <a class="btn  place-order-btn" href="#place"><b>Place Order</b></a>
+                </div>
             </div>
         </div>
     </div>
@@ -114,6 +237,18 @@
                         <label for="message" class="form-label">Important Message</label>
                         <textarea class="form-control" id="message" rows="3"></textarea>
                     </div>
+                    <div class="mb-3">
+                        <label for="minRupees" class="form-label">Minimum Rupees</label>
+                        <input type="number" class="form-control" id="minRupees" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="maxRupees" class="form-label">Maximum Rupees</label>
+                        <input type="number" class="form-control" id="maxRupees" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" required>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
@@ -123,16 +258,16 @@
     <div class="custom-divider"></div>
 
     <!-- About Us Section -->
-    <div class="container mt-5">
+    <div id="about" class="container mt-5">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-section">
                 <h2>About Us</h2>
                 <p>Click & Carry is dedicated to providing a seamless shopping experience by delivering a wide range of products directly to your doorstep. Our mission is to offer convenience, reliability, and affordability to our customers.</p>
             </div>
         </div>
     </div>
 
-    <div class="custom-divider"></div>
+    
 
     <!-- Why Choose Us Section -->
     <div class="container mt-5">
@@ -188,7 +323,7 @@
     </div>
 
     <div class="custom-divider"></div>
-    <div class="container mt-5">
+    <div id="services" class="container mt-5">
         <div class="row">
             <div class="col-12 text-center">
                 <h2>Our Services</h2>
@@ -197,7 +332,7 @@
         <div class="row mt-4">
             <!-- Carry Services -->
             <div class="col-md-6">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdWfVRRkXfjrBnB1EgsADotJDgHNEGmEA-XA&s" class="img-fluid">
+                <img src="https://via.placeholder.com/300" alt="Carry Services" class="img-fluid">
             </div>
             <div class="col-md-6">
                 <h3>Carry Services</h3>
@@ -211,7 +346,7 @@
                 <p>With our Carry with Warranty Services, you can have peace of mind knowing that your items are covered. We provide a warranty for all transported goods, ensuring that any damages or losses are compensated.</p>
             </div>
             <div class="col-md-6">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdWfVRRkXfjrBnB1EgsADotJDgHNEGmEA-XA&s" alt="Carry with Warranty Services" class="img-fluid">
+                <img src="https://via.placeholder.com/300" alt="Carry with Warranty Services" class="img-fluid">
             </div>
         </div>
     </div>
