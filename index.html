@@ -137,6 +137,17 @@
             background-color: #feb47b;
             border-color: #feb47b;
         }
+        @media (max-width: 768px) {
+        .bg-image {
+            height: 300px; /* Smaller height for tablets and mobile devices */
+        }
+        .text-overlay {
+            padding: 10px; /* Adjust padding for smaller devices */
+        }
+        .text-overlay h1, .text-overlay h2 {
+            font-size: 1.5rem; /* Smaller font sizes */
+        }
+    }
     </style>
 </head>
 <body>
@@ -155,7 +166,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" >Home</a>
                     </li>
                   
                     <li class="nav-item">
@@ -193,7 +204,18 @@
         </div>
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <form id="place">
+                <form id="place" name="submit-to-google-sheet">
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-select" id="category" required onchange="toggleOtherAddress(); toggleTransportDropdown()">
+                            <option value="">Select a category</option>
+                            <option value="vegetables">Fresh Vegetables</option>
+                            <option value="groceries">Essential Groceries</option>
+                            <option value="garments">Stylish Garments</option>
+                            <option value="pansar">Natural Pansar Items</option>
+                            <option value="others">Traspot Services</option>
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Your Name</label>
                         <input type="text" class="form-control" id="name" required>
@@ -210,15 +232,19 @@
                         <label for="address" class="form-label">Delivery Address</label>
                         <input type="text" class="form-control" id="address" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="category" class="form-label">Category</label>
-                        <select class="form-select" id="category" required>
-                            <option value="">Select a category</option>
-                            <option value="vegetables">Fresh Vegetables</option>
-                            <option value="groceries">Essential Groceries</option>
-                            <option value="garments">Stylish Garments</option>
-                            <option value="pansar">Natural Pansar Items</option>
-                            <option value="others">Others</option>
+                    <div class="mb-3 d-none" id="otherAddressField">
+                        <label for="otherAddress" class="form-label">Your Address</label>
+                        <input type="text" class="form-control" id="otherAddress" placeholder="Enter the address where you want services">
+                    </div>
+                    <div class="mb-3 d-none" id="transportDropdown">
+                        <label for="transport" class="form-label">Transport Options</label>
+                        <select class="form-select" id="transport">
+                            <option value="">Select a service</option>
+                            <option value="car">Car</option>
+                            <option value="loader">Loader Riksha</option>
+                            <option value="truck">Truck</option>
+                            <option value="22-wheeler">22 Wheeler</option>
+                            <option value="others">Other</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -249,13 +275,42 @@
                         <label for="quantity" class="form-label">Quantity</label>
                         <input type="number" class="form-control" id="quantity" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">                   
+                            Submit
+                        </button>
+                    <span id="success"></span>
                 </form>
             </div>
         </div>
     </div>
   
     <div class="custom-divider"></div>
+    <!-- Responsive Images Section -->
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Gallery</h2>
+        </div>
+    </div>
+    <div class="row mt-4 justify-content-center">
+        <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
+            <img src="https://via.placeholder.com/300" alt="Gallery Image 1" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
+            <img src="https://via.placeholder.com/300" alt="Gallery Image 2" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
+            <img src="https://via.placeholder.com/300" alt="Gallery Image 3" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
+            <img src="https://via.placeholder.com/300" alt="Gallery Image 4" class="img-fluid rounded shadow">
+        </div>
+    </div>
+</div>
+
+
 
     <!-- About Us Section -->
     <div id="about" class="container mt-5">
@@ -331,7 +386,7 @@
         </div>
         <div class="row mt-4">
             <!-- Carry Services -->
-            <div class="col-md-6">
+            <div class="col-md-6 d-flex justify-content-center">
                 <img src="https://via.placeholder.com/300" alt="Carry Services" class="img-fluid">
             </div>
             <div class="col-md-6">
@@ -345,7 +400,7 @@
                 <h3>Carry with Warranty Services</h3>
                 <p>With our Carry with Warranty Services, you can have peace of mind knowing that your items are covered. We provide a warranty for all transported goods, ensuring that any damages or losses are compensated.</p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 d-flex justify-content-center">
                 <img src="https://via.placeholder.com/300" alt="Carry with Warranty Services" class="img-fluid">
             </div>
         </div>
@@ -384,6 +439,45 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
     <!-- Footer Section -->
+    <script>
+         function toggleOtherAddress() {
+        const category = document.getElementById('category').value;
+        const otherAddressField = document.getElementById('otherAddressField');
+        
+        if (category === 'others') {
+            otherAddressField.classList.remove('d-none');
+        } else {
+            otherAddressField.classList.add('d-none');
+        }
+    }
+
+    function toggleTransportDropdown() {
+    const category = document.getElementById('category').value;
+    const transportDropdown = document.getElementById('transportDropdown');
     
+    if (category === 'others') {
+        transportDropdown.classList.remove('d-none'); // Show dropdown
+    } else {
+        transportDropdown.classList.add('d-none'); // Hide dropdown
+    }
+}
+
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby_br6-y11QlnlmR6NYdMuImKFsM6vEppnMQ6MEz72zMTNiE3yjFiViWdlrDvRy14E/exec'
+    const form = document.forms['submit-to-google-sheet']
+   const message=document.getElementById('success')
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            message.innerHTML="Data Submitted Successfully";
+            setTimeout(function () {
+                message.innerHTML=''
+            },5000);
+            form.reset();
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+    </script>
 </body>
 </html>
