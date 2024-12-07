@@ -204,7 +204,7 @@
         </div>
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <form id="place" name="submit-to-google-sheet">
+                <form id="orderForm" name="submit-to-google-sheet">
                     <div class="mb-3">
                         <label for="category" class="form-label">Category</label>
                         <select class="form-select" id="category" required onchange="toggleOtherAddress(); toggleTransportDropdown()">
@@ -279,7 +279,8 @@
                         <button type="submit" class="btn btn-primary">                   
                             Submit
                         </button>
-                    <span id="success"></span>
+                        <div id="successMessage" class="mt-3 text-success" style="display: none;">Data Submitted Successfully</div>
+                        <div id="errorMessage" class="mt-3 text-danger" style="display: none;">Error Submitting Data</div>
                 </form>
             </div>
         </div>
@@ -296,16 +297,16 @@
     </div>
     <div class="row mt-4 justify-content-center">
         <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
-            <img src="https://via.placeholder.com/300" alt="Gallery Image 1" class="img-fluid rounded shadow">
+            <img src="https://www.winstore.pk/cdn/shop/products/pf1A93SZVa_2048x.jpg?v=1646030579" alt="Gallery Image 1" class="img-fluid rounded shadow">
         </div>
         <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
-            <img src="https://via.placeholder.com/300" alt="Gallery Image 2" class="img-fluid rounded shadow">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSteVPt_Z9Fud9hqLUnzusUZ8gFcRALDVVuyQ&s" alt="Gallery Image 2" class="img-fluid rounded shadow">
         </div>
         <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
-            <img src="https://via.placeholder.com/300" alt="Gallery Image 3" class="img-fluid rounded shadow">
+            <img src="truck.png" alt="Gallery Image 3" class="img-fluid rounded shadow">
         </div>
         <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
-            <img src="https://via.placeholder.com/300" alt="Gallery Image 4" class="img-fluid rounded shadow">
+            <img src="https://cdn.trucksfloor.com/vehicles/truck/trf/mahindra-blazo-x-55-tractor-trailer/mahindra-blazo-x-55-tractor-trailer-1.jpg" alt="Gallery Image 4" class="img-fluid rounded shadow">
         </div>
     </div>
 </div>
@@ -327,7 +328,7 @@
     <!-- Why Choose Us Section -->
     <div class="container mt-5">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 ">
                 <h2>Why Choose Us</h2>
                 <ul>
                     <li>Wide range of products</li>
@@ -463,21 +464,50 @@
 }
 
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby_br6-y11QlnlmR6NYdMuImKFsM6vEppnMQ6MEz72zMTNiE3yjFiViWdlrDvRy14E/exec'
-    const form = document.forms['submit-to-google-sheet']
-   const message=document.getElementById('success')
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            message.innerHTML="Data Submitted Successfully";
-            setTimeout(function () {
-                message.innerHTML=''
-            },5000);
+    
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbygL2j6RJud4Zoe5KzAPDnDZx5z_ToF8264Jo8omrcHbmHMcO7tlvnQiAb96sDe2Gc/exec'
+    const form = document.forms['submit-to-google-sheet'];
+
+// Success and Error Messages
+const successMessage = document.getElementById('successMessage');
+const errorMessage = document.getElementById('errorMessage');
+
+// Form Submit Event Listener
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    console.log('Submitting form...');
+
+    try {
+        const formData = new FormData(form);
+
+        // Log form data for debugging
+        console.log('Form Data:', Object.fromEntries(formData.entries()));
+
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            console.log('Data submitted successfully:', await response.text());
+            successMessage.style.display = 'block';
+            errorMessage.style.display = 'none';
             form.reset();
-        })
-        .catch(error => console.error('Error!', error.message))
-    })
+
+            // Hide the success message after a few seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 3000);
+        } else {
+            throw new Error('Network response was not ok');
+        }
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'block';
+    }
+});
     </script>
 </body>
 </html>
