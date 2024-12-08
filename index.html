@@ -148,6 +148,24 @@
             font-size: 1.5rem; /* Smaller font sizes */
         }
     }
+    .image-wrapper {
+    width: 100%; /* Takes full width of the column */
+    max-width: 200px; /* Maximum size for uniformity */
+    height: auto; /* Maintain aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-wrapper img {
+    width: 100%; /* Make the image responsive */
+    height: 131px; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure consistent coverage without distortion */
+}
+.image-wrapper img:hover {
+    transform: scale(1.5); /* Scales the image to 1.5 times its original size */
+    transition: transform 0.3s ease-in-out; /* Adds a smooth transition */
+}
+
     </style>
 </head>
 <body>
@@ -181,20 +199,68 @@
         </div>
     </nav>
 
-  
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Gallery</h2>
+            </div>
+        </div>
+        <div class="row mt-4 justify-content-center">
+            <!-- Gallery Item 1 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3 d-flex flex-column align-items-center">
+                <div class="image-wrapper">
+                    <img src="vegetables.jpg" alt="Vegetables" class="img-fluid rounded shadow">
+                </div>
+                <p class="text-center mt-2"><b>Vegetables</b></p>
+            </div>
+            <!-- Gallery Item 2 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3 d-flex flex-column align-items-center">
+                <div class="image-wrapper">
+                    <img src="gerocery.jpg" alt="Grocery" class="img-fluid rounded shadow">
+                </div>
+                <p class="text-center mt-2"><b>Grocery</b></p>
+            </div>
+            <!-- Gallery Item 3 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3 d-flex flex-column align-items-center">
+                <div class="image-wrapper">
+                    <img src="pansar.jpg" alt="Pansar Items" class="img-fluid rounded shadow">
+                </div>
+                <p class="text-center mt-2"><b>Pansar Items</b></p>
+            </div>
+            <!-- Gallery Item 4 -->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3 d-flex flex-column align-items-center">
+                <div class="image-wrapper">
+                    <img src="garments.jpg" alt="New Item" class="img-fluid rounded shadow">
+                </div>
+                <p class="text-center mt-2"><b>Garments</b></p>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-3 d-flex flex-column align-items-center">
+                <div class="image-wrapper">
+                    <img src="riksha.jpg" alt="Transport" class="img-fluid rounded shadow">
+                </div>
+                <p class="text-center mt-2"><b>Transport</b></p>
+            </div>
+            <!-- New Gallery Item -->
+            
+        </div>
+    </div>
+    
+    
+
+
 
     
 
-            <!-- Image Background Section -->
-            <div class="col-md-12 position-relative" style="background-image: url('category.jpg'); background-size: cover; height: 500px;">
+            <!-- Image Background Section
+            <div class="col-md-12 position-relative mt-5" style="background-image: url('category.png'); background-size: cover; height: 500px;">
                 <div class="text-overlay">
-                    <h1><b>Click & Carry</b></h1>
+                     <h1><b>Click & Carry</b></h1>
                     <p>This is some text that will appear over the image, positioned in the lower left corner.</p>
-                    <a class="btn  place-order-btn" href="#place"><b>Place Order</b></a>
+                    <a class="btn  place-order-btn" href="#place"><b>Place Order</b></a> 
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="custom-divider"></div>
     <div class="container mt-5">
         <div class="row">
@@ -291,27 +357,6 @@
     <div class="custom-divider"></div>
     <!-- Responsive Images Section -->
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h2>Gallery</h2>
-        </div>
-    </div>
-    <div class="row mt-4 justify-content-center">
-        <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
-            <img src="https://www.winstore.pk/cdn/shop/products/pf1A93SZVa_2048x.jpg?v=1646030579" alt="Gallery Image 1" class="img-fluid rounded shadow">
-        </div>
-        <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSteVPt_Z9Fud9hqLUnzusUZ8gFcRALDVVuyQ&s" alt="Gallery Image 2" class="img-fluid rounded shadow">
-        </div>
-        <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
-            <img src="truck.png" alt="Gallery Image 3" class="img-fluid rounded shadow">
-        </div>
-        <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
-            <img src="https://cdn.trucksfloor.com/vehicles/truck/trf/mahindra-blazo-x-55-tractor-trailer/mahindra-blazo-x-55-tractor-trailer-1.jpg" alt="Gallery Image 4" class="img-fluid rounded shadow">
-        </div>
-    </div>
-</div>
 
 
 
