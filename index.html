@@ -202,7 +202,9 @@
                 <h2>Place Order</h2>
             </div>
         </div>
-        <div class="row">
+        <script src="https://sheetdb.io/s/f/xh2mtdnpsgr44.js"></script>
+        <!-- <div class="row">
+
             <div class="col-md-8 offset-md-2">
                 <form id="orderForm" name="submit-to-google-sheet">
                     <div class="mb-3">
@@ -283,13 +285,18 @@
                         <div id="errorMessage" class="mt-3 text-danger" style="display: none;">Error Submitting Data</div>
                 </form>
             </div>
-        </div>
+        </div> -->
     </div>
   
     <div class="custom-divider"></div>
     <!-- Responsive Images Section -->
 
-
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Gallery</h2>
+        </div>
+    </div>
     <div class="row mt-4 justify-content-center">
         <div class="col-md-3 col-sm-6 mb-3 d-flex justify-content-center">
             <img src="https://www.winstore.pk/cdn/shop/products/pf1A93SZVa_2048x.jpg?v=1646030579" alt="Gallery Image 1" class="img-fluid rounded shadow">
@@ -435,7 +442,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
     <!-- Footer Section -->
-    <script>
+    <!-- <script>
          function toggleOtherAddress() {
         const category = document.getElementById('category').value;
         const otherAddressField = document.getElementById('otherAddressField');
@@ -461,48 +468,48 @@
 
     
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbygL2j6RJud4Zoe5KzAPDnDZx5z_ToF8264Jo8omrcHbmHMcO7tlvnQiAb96sDe2Gc/exec'
-    const form = document.forms['submit-to-google-sheet'];
+//     const scriptURL = 'https://script.google.com/macros/s/AKfycbygL2j6RJud4Zoe5KzAPDnDZx5z_ToF8264Jo8omrcHbmHMcO7tlvnQiAb96sDe2Gc/exec'
+//     const form = document.forms['submit-to-google-sheet'];
 
-// Success and Error Messages
-const successMessage = document.getElementById('successMessage');
-const errorMessage = document.getElementById('errorMessage');
+// // Success and Error Messages
+// const successMessage = document.getElementById('successMessage');
+// const errorMessage = document.getElementById('errorMessage');
 
-// Form Submit Event Listener
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    console.log('Submitting form...');
+// // Form Submit Event Listener
+// form.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+//     console.log('Submitting form...');
 
-    try {
-        const formData = new FormData(form);
+//     try {
+//         const formData = new FormData(form);
 
-        // Log form data for debugging
-        console.log('Form Data:', Object.fromEntries(formData.entries()));
+//         // Log form data for debugging
+//         console.log('Form Data:', Object.fromEntries(formData.entries()));
 
-        const response = await fetch(scriptURL, {
-            method: 'POST',
-            body: formData,
-        });
+//         const response = await fetch(scriptURL, {
+//             method: 'POST',
+//             body: formData,
+//         });
 
-        if (response.ok) {
-            console.log('Data submitted successfully:', await response.text());
-            successMessage.style.display = 'block';
-            errorMessage.style.display = 'none';
-            form.reset();
+//         if (response.ok) {
+//             console.log('Data submitted successfully:', await response.text());
+//             successMessage.style.display = 'block';
+//             errorMessage.style.display = 'none';
+//             form.reset();
 
-            // Hide the success message after a few seconds
-            setTimeout(() => {
-                successMessage.style.display = 'none';
-            }, 3000);
-        } else {
-            throw new Error('Network response was not ok');
-        }
-    } catch (error) {
-        console.error('Error submitting form:', error);
-        successMessage.style.display = 'none';
-        errorMessage.style.display = 'block';
-    }
-});
-    </script>
+//             // Hide the success message after a few seconds
+//             setTimeout(() => {
+//                 successMessage.style.display = 'none';
+//             }, 3000);
+//         } else {
+//             throw new Error('Network response was not ok');
+//         }
+//     } catch (error) {
+//         console.error('Error submitting form:', error);
+//         successMessage.style.display = 'none';
+//         errorMessage.style.display = 'block';
+//     }
+// });
+    </script> -->
 </body>
 </html>
